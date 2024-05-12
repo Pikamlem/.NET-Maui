@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLforPika.MainPage"
+             >
+
+    <StackLayout Margin="20,35,20,20" Spacing="5">
+        <Entry x:Name="nameEntry"
+               Placeholder="Enter name" />
+        
+        <Button Text="Add Person"
+                Clicked="Add_Clicked" />
+
+        <Grid Padding="10" Margin="10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"  Grid.Row="1" 
+                    Text="Update" 
+                    WidthRequest="150"
+                    Clicked="Update_Clicked" />
+
+            <Button Grid.Column="3" Grid.Row="1"
+                    Text="Delete" 
+                    ClassId="mybutton"
+                    WidthRequest="150"
+                    Clicked="Delete_Clicked" />
+            
+
+        </Grid>
+        <Grid Margin="30,0,30,0" >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"  Grid.Row="1"
+            Text="get all them" 
+            WidthRequest="150"
+            Clicked="PutAll_Clicked" />
+
+            <Button Grid.Column="3" Grid.Row="1"
+            Text="sort" 
+            WidthRequest="150"
+            Clicked="sort_Clicked" />
+
+        </Grid>
+        
+
+
+
+        <CollectionView x:Name="collectionView" 
+                        SelectionMode="Single" 
+                        SelectionChanged="collectionView_SelectionChanged"
+                        >
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Name}"
+                               FontSize="Medium" />
+                        
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <Button 
+        Text="change" 
+        Clicked="Change_Clicked"
+        HorizontalOptions="Fill"
+        />
+        <Button x:Name="changeBGToRed"
+        Text="Click me" 
+        SemanticProperties.Hint="Counts the number of times you click"
+        Clicked="changeBGToRed_Clicked"
+        HorizontalOptions="Fill" />
+
+    </StackLayout>
+
+</ContentPage>
